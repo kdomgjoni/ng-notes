@@ -1,7 +1,7 @@
 <div class="forms">
+  <h1>Add notes</h1>
   <mat-form-field>
-    <h1>Add notes</h1>
-    <input matInput placeholder="add notes">
-    <button mat-button>Save Note</button>
+    <input matInput placeholder="add notes" [(ngModel)]="notes.content">
   </mat-form-field>
+  <button mat-button (click)="saveNote()" >Save Note</button>
 </div>

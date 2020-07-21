@@ -8,6 +8,7 @@ import { CartComponent } from './cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
 import { FormsComponent } from './forms/forms.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { FormsComponent } from './forms/forms.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
+    FormsModule,
     DemoMaterialModule
   ],
   providers: [],

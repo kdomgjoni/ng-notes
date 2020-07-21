@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { CardService } from '../card.service';
 
 @Component({
   selector: 'app-forms',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
+  @ViewChild('flashForm', { static: false }) flashForm: NgForm;
 
-  constructor() { }
+  notes = {
+    content: ''
+  }
+
+  constructor(private cardService: CardService) { }
+
 
   ngOnInit() {
+
+  }
+
+  saveNote(){
+    this.cardService.addCard(this.notes);
   }
 
 }
