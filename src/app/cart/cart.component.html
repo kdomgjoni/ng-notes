@@ -1,11 +1,11 @@
 <div class="container">
   <div class="cards">
-    <mat-card *ngFor="let card of cards$ | async">
+    <mat-card *ngFor="let card of cards$ | async; trackBy: trackByCardId">
       <div class="card-content">
         <p>{{card.content}}</p>
       </div>
       <button mat-fab color="warn">
-        <mat-icon>delete</mat-icon>
+        <mat-icon (click)=handleDelete(card)>delete</mat-icon>
       </button>
       <button mat-fab color="primary">
         <mat-icon>edit</mat-icon>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CardService } from '../card.service';
+import { ICard } from '../card.model';
 
 @Component({
   selector: 'app-cart',
@@ -10,6 +11,7 @@ export class CartComponent implements OnInit {
 
   cards$;
 
+
   constructor(private cardService: CardService) {
 
     this.cards$ = cardService.cards$;
@@ -17,6 +19,14 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  trackByCardId(index, card) {
+    return card.id;
+  }
+
+  handleDelete(card){
+    this.cardService.removeCard(card.id);
   }
 
 }
