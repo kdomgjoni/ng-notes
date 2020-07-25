@@ -48,4 +48,10 @@ export class CardService {
     ];
     this.cards$.next(this.cards);
   }
+
+  getCard(id){
+    const card = this.cards.find(cards => cards.id === id);
+    return card;
+  }
+
 }

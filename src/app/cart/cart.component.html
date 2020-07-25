@@ -7,9 +7,14 @@
       <button mat-fab color="warn">
         <mat-icon (click)=handleDelete(card)>delete</mat-icon>
       </button>
-      <button mat-fab color="primary">
-        <mat-icon>edit</mat-icon>
+      <button *ngIf="editing; else submitBtn" mat-fab color="primary">
+        <mat-icon (click)=handleEdit(card)>edit</mat-icon>
       </button>
+      <ng-template mat-fab #submitBtn>
+        <button  mat-fab color="primary">
+          <mat-icon>save</mat-icon>
+        </button>
+      </ng-template>
     </mat-card>
   </div>
 </div>

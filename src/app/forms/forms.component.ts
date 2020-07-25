@@ -25,4 +25,8 @@ export class FormsComponent implements OnInit {
     this.cardService.addCard(this.notes);
   }
 
+  editNote(id: number){
+    this.notes = this.cardService.getCard(id);
+  }
+
 }

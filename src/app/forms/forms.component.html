@@ -5,3 +5,7 @@
   </mat-form-field>
   <button mat-button (click)="saveNote()" >Save Note</button>
 </div>
+<app-cart
+  (onEdit)="editNote($event)"
+>
+</app-cart>

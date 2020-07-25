@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CardService } from '../card.service';
 import { ICard } from '../card.model';
 
@@ -11,6 +11,9 @@ export class CartComponent implements OnInit {
 
   cards$;
 
+  editing = true;
+
+  @Output() onEdit = new EventEmitter();
 
   constructor(private cardService: CardService) {
 
@@ -27,6 +30,10 @@ export class CartComponent implements OnInit {
 
   handleDelete(card){
     this.cardService.removeCard(card.id);
+  }
+
+  handleEdit(card){
+    this.onEdit.emit(card.id);
   }
 
 }
