@@ -54,4 +54,17 @@ export class CardService {
     return card;
   }
 
+  updateCard(id, card: ICard){
+    const index = this.cards.findIndex(card => card.id === id);
+    this.cards = [
+      ...this.cards.slice(0, index),
+      {
+        ...this.cards[index],
+        ...this.cards,
+      },
+      ...this.cards.slice(index + 1),
+    ];
+    this.cards$.next(this.cards);
+  }
+
 }

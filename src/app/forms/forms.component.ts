@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CardService } from '../card.service';
+import { ICard } from '../card.model';
 
 @Component({
   selector: 'app-forms',
@@ -10,9 +11,13 @@ import { CardService } from '../card.service';
 export class FormsComponent implements OnInit {
   @ViewChild('flashForm', { static: false }) flashForm: NgForm;
 
-  notes = {
-    content: ''
+  notes: ICard = {
+    content: '',
+    id: 0
   }
+
+  editingId: number;
+  editing = true;
 
   constructor(private cardService: CardService) { }
 
@@ -25,8 +30,16 @@ export class FormsComponent implements OnInit {
     this.cardService.addCard(this.notes);
   }
 
-  editNote(id: number){
+  editNote(id){
     this.notes = this.cardService.getCard(id);
+    this.editingId = id;
+    this.editing = false;
   }
+
+  updateNote(){
+    this.cardService.updateCard(this.editingId, this.notes);
+    this.editing = true;
+  }
+
 
 }

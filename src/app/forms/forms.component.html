@@ -3,7 +3,10 @@
   <mat-form-field>
     <input matInput placeholder="add notes" [(ngModel)]="notes.content">
   </mat-form-field>
-  <button mat-button (click)="saveNote()" >Save Note</button>
+  <button *ngIf="editing else updateTemplate" mat-button (click)="saveNote()" >Save Note</button>
+  <ng-template #updateTemplate>
+    <button mat-button (click)="updateNote()" >Update Note</button>
+  </ng-template>
 </div>
 <app-cart
   (onEdit)="editNote($event)"
