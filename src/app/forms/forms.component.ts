@@ -39,7 +39,15 @@ export class FormsComponent implements OnInit {
   updateNote(){
     this.cardService.updateCard(this.editingId, this.notes);
     this.editing = true;
+    this.clearNote();
   }
 
+  clearNote(){
+    this.notes = {
+      content: '',
+      id: 0
+    }
+    this.flashForm.reset();
+  }
 
 }
