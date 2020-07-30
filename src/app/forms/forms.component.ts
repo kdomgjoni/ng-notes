@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
 import { CardService } from '../card.service';
 import { ICard } from '../card.model';
 
@@ -9,12 +9,13 @@ import { ICard } from '../card.model';
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
-  @ViewChild('flashForm', { static: false }) flashForm: NgForm;
+  @ViewChild('cardForm', { static: false }) cardForm: NgForm;
 
   notes: ICard = {
     content: '',
     id: 0
   }
+  newForm : FormGroup;
 
   editingId: number;
   editing = true;
@@ -28,6 +29,7 @@ export class FormsComponent implements OnInit {
 
   saveNote(){
     this.cardService.addCard(this.notes);
+    this.clearNote();
   }
 
   editNote(id){
@@ -47,7 +49,6 @@ export class FormsComponent implements OnInit {
       content: '',
       id: 0
     }
-    this.flashForm.reset();
   }
 
 }
