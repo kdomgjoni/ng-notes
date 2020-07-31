@@ -4,11 +4,15 @@
       <div class="card-content">
         <p>{{card.content}}</p>
       </div>
-      <button mat-fab color="warn">
-        <mat-icon (click)=handleDelete(card)>delete</mat-icon>
-      </button>
+
       <button *ngIf="editing; else submitBtn" mat-fab color="primary">
         <mat-icon (click)=handleEdit(card)>edit</mat-icon>
+      </button>
+      <button mat-fab color="primary">
+        <mat-icon (click)=handleArchive(card)>archive</mat-icon>
+      </button>
+      <button mat-fab color="warn">
+        <mat-icon (click)=handleDelete(card)>delete</mat-icon>
       </button>
       <ng-template mat-fab #submitBtn>
         <button  mat-fab color="primary">

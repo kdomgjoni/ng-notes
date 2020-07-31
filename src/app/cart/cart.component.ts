@@ -36,4 +36,8 @@ export class CartComponent implements OnInit {
     this.onEdit.emit(card.id);
   }
 
+  handleArchive(card){
+    this.cardService.archiveCard(card);
+    this.handleDelete(card);
+  }
 }

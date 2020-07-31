@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from '../card.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  archives$;
+
+  totalArch;
+
+
+
+  constructor(private cardService: CardService) {
+    this.archives$ = this.cardService.archives$;
+
+    this.archives$.subscribe(data => {
+      this.totalArch = Object.keys(data).length;
+    });
+
+  }
 
   ngOnInit() {
+
   }
+
 
 }

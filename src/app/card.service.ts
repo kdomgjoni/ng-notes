@@ -23,9 +23,14 @@ export class CardService {
     id: this.getRandomNumber(),
   }];
 
+  archives = [];
+  archivesLength;
+
   constructor() { }
 
   cards$ = new BehaviorSubject<ICard[]>(this.cards);
+  archives$ = new BehaviorSubject<ICard[]>(this.archives);
+
 
 
   addCard(card: ICard){
@@ -41,7 +46,6 @@ export class CardService {
   removeCard(id){
 
     const index = this.cards.findIndex(card => card.id === id);
-    console.log(index);
     this.cards = [
       ...this.cards.slice(0, index),
       ...this.cards.slice(index + 1),
@@ -66,5 +70,20 @@ export class CardService {
     ];
     this.cards$.next(this.cards);
   }
+
+
+
+  archiveCard(card){
+    this.archives = [
+      ...this.archives,{
+        ...card,
+        id: this.getRandomNumber()
+      }
+    ];
+    this.archives$.next(this.archives);
+  }
+
+
+
 
 }

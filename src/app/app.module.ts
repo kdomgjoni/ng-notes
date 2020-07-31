@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
 import { FormsComponent } from './forms/forms.component';
 import { FormsModule } from '@angular/forms';
+import { ArchiveComponent } from './archive/archive.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     CartComponent,
-    FormsComponent
+    FormsComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
