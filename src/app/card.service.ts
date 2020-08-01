@@ -83,6 +83,16 @@ export class CardService {
     this.archives$.next(this.archives);
   }
 
+  removeArchiveCard(id){
+    const index = this.archives.findIndex(card => card.id === id);
+    this.archives = [
+      ...this.archives.slice(0, index),
+      ...this.archives.slice(index + 1),
+    ];
+    this.archives$.next(this.archives);
+  }
+
+
 
 
 

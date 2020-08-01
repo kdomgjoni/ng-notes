@@ -1,1 +1,17 @@
-<p>archive works!</p>
+<div class="container">
+  <div class="cards">
+    <h1>Archive Card</h1>
+    <mat-card *ngFor="let card of archives$ | async; trackBy: trackByCardId">
+      <div class="card-content">
+        <p>{{card.content}}</p>
+      </div>
+      <button mat-fab color="primary">
+        <mat-icon (click)=handleBack(card)>remove</mat-icon>
+      </button>
+      <button mat-fab color="warn">
+        <mat-icon (click)=handleArchiveDelete(card)>delete</mat-icon>
+      </button>
+    </mat-card>
+  </div>
+</div>
+
