@@ -1,6 +1,6 @@
 <div class="container">
   <div class="cards">
-    <mat-card *ngFor="let card of cards$ | async; trackBy: trackByCardId">
+    <mat-card [class.hidden]="card.isArchive" *ngFor="let card of cards$ | async; trackBy: trackByCardId">
       <div class="card-content">
         <p>{{card.content}}</p>
       </div>

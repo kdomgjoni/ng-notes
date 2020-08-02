@@ -10,7 +10,7 @@ export class ArchiveComponent implements OnInit {
   archives$
 
   constructor(private cardService: CardService) {
-    this.archives$ = this.cardService.archives$;
+    this.archives$ = this.cardService.cards$;
    }
 
    trackByCardId(index, card) {
@@ -18,13 +18,13 @@ export class ArchiveComponent implements OnInit {
   }
 
    handleArchiveDelete(card){
-     this.cardService.removeArchiveCard(card.id);
+     this.cardService.removeCard(card.id);
    }
 
-   handleBack(card){
-    this.cardService.addCard(card);
-    this.cardService.removeArchiveCard(card.id);
-   }
+  //  handleBack(card){
+  //   this.cardService.addCard(card);
+  //   this.cardService.removeArchiveCard(card.id);
+  //  }
 
   ngOnInit() {
   }

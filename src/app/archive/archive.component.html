@@ -1,7 +1,7 @@
 <div class="container">
   <div class="cards">
     <h1>Archive Card</h1>
-    <mat-card *ngFor="let card of archives$ | async; trackBy: trackByCardId">
+    <mat-card [class.show]="card.isArchive" *ngFor="let card of archives$ | async; trackBy: trackByCardId">
       <div class="card-content">
         <p>{{card.content}}</p>
       </div>

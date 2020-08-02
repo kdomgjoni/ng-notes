@@ -37,7 +37,7 @@ export class CartComponent implements OnInit {
   }
 
   handleArchive(card){
-    this.cardService.archiveCard(card);
-    this.handleDelete(card);
+    this.cardService.isCardArchive(card);
+    this.cards$.subscribe(data => console.log(data));
   }
 }

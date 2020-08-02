@@ -15,21 +15,23 @@ export class CardService {
   cards: ICard[] = [{
     content: 'content 1',
     id: this.getRandomNumber(),
+    isArchive: false,
   }, {
     content: 'Content 2',
     id: this.getRandomNumber(),
+    isArchive: false,
   }, {
     content: 'Content 3',
     id: this.getRandomNumber(),
+    isArchive: false,
   }];
 
   archives = [];
-  archivesLength;
 
   constructor() { }
 
   cards$ = new BehaviorSubject<ICard[]>(this.cards);
-  archives$ = new BehaviorSubject<ICard[]>(this.archives);
+  //archives$ = new BehaviorSubject<ICard[]>(this.archives);
 
 
 
@@ -71,26 +73,33 @@ export class CardService {
     this.cards$.next(this.cards);
   }
 
+  isCardArchive(cardsArch){
+    const index = this.cards.findIndex(card => card.id === cardsArch.id);
+    this.cards[index].isArchive = cardsArch.isArchive ? false : true;
+    this.cards$.next(this.cards);
 
-
-  archiveCard(card){
-    this.archives = [
-      ...this.archives,{
-        ...card,
-        id: this.getRandomNumber()
-      }
-    ];
-    this.archives$.next(this.archives);
   }
 
-  removeArchiveCard(id){
-    const index = this.archives.findIndex(card => card.id === id);
-    this.archives = [
-      ...this.archives.slice(0, index),
-      ...this.archives.slice(index + 1),
-    ];
-    this.archives$.next(this.archives);
-  }
+
+
+  // archiveCard(card){
+  //   this.archives = [
+  //     ...this.archives,{
+  //       ...card,
+  //       id: this.getRandomNumber()
+  //     }
+  //   ];
+  //   this.archives$.next(this.archives);
+  // }
+
+  // removeArchiveCard(id){
+  //   const index = this.archives.findIndex(card => card.id === id);
+  //   this.archives = [
+  //     ...this.archives.slice(0, index),
+  //     ...this.archives.slice(index + 1),
+  //   ];
+  //   this.archives$.next(this.archives);
+  // }
 
 
 

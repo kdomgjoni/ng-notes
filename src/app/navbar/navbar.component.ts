@@ -15,11 +15,11 @@ export class NavbarComponent implements OnInit {
 
 
   constructor(private cardService: CardService) {
-    this.archives$ = this.cardService.archives$;
+    //this.archives$ = this.cardService.archives$;
 
-    this.archives$.subscribe(data => {
-      this.totalArch = Object.keys(data).length;
-    });
+    // this.archives$.subscribe(data => {
+    //   this.totalArch = Object.keys(data).length;
+    // });
 
   }
 
