@@ -85,7 +85,7 @@ export class CardService {
     const index = this.cards.findIndex(card => card.id === cardsArch.id);
     if(this.cards[index].isArchive === true){
       this.activeArchive += 1;
-    }else{
+    }else if(this.cards[index].isArchive === false){
       this.activeArchive -= 1;
     }
   }

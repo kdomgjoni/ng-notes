@@ -19,6 +19,7 @@ export class ArchiveComponent implements OnInit {
 
    handleArchiveDelete(card){
      this.cardService.removeCard(card.id);
+     this.cardService.countActive(card);
    }
 
 
