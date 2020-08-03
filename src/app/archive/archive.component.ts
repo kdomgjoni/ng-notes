@@ -21,10 +21,11 @@ export class ArchiveComponent implements OnInit {
      this.cardService.removeCard(card.id);
    }
 
-  //  handleBack(card){
-  //   this.cardService.addCard(card);
-  //   this.cardService.removeArchiveCard(card.id);
-  //  }
+
+
+   handleBack(card){
+    this.cardService.isCardArchive(card);
+   }
 
   ngOnInit() {
   }

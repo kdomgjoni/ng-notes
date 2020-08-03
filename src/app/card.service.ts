@@ -27,8 +27,10 @@ export class CardService {
   }];
 
   archives = [];
+  activeArchive = 0;
 
-  constructor() { }
+  constructor() {
+  }
 
   cards$ = new BehaviorSubject<ICard[]>(this.cards);
   //archives$ = new BehaviorSubject<ICard[]>(this.archives);
@@ -76,9 +78,19 @@ export class CardService {
   isCardArchive(cardsArch){
     const index = this.cards.findIndex(card => card.id === cardsArch.id);
     this.cards[index].isArchive = cardsArch.isArchive ? false : true;
-    this.cards$.next(this.cards);
-
+    this.countActive(cardsArch);
   }
+
+  countActive(cardsArch){
+    const index = this.cards.findIndex(card => card.id === cardsArch.id);
+    if(this.cards[index].isArchive === true){
+      this.activeArchive += 1;
+    }else{
+      this.activeArchive -= 1;
+    }
+  }
+
+
 
 
 

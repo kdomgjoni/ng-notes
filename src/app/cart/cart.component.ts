@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
 
     this.cards$ = cardService.cards$;
 
+
   }
 
   ngOnInit() {
@@ -38,6 +39,5 @@ export class CartComponent implements OnInit {
 
   handleArchive(card){
     this.cardService.isCardArchive(card);
-    this.cards$.subscribe(data => console.log(data));
   }
 }
