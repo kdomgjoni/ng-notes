@@ -1,5 +1,5 @@
 export type ICard = {
   content: string;
   id: number;
-  isArchive:boolean
+  isArchive: boolean;
  }

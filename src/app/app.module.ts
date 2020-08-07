@@ -10,6 +10,8 @@ import {DemoMaterialModule} from './material-module';
 import { FormsComponent } from './forms/forms.component';
 import { FormsModule } from '@angular/forms';
 import { ArchiveComponent } from './archive/archive.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { ArchiveComponent } from './archive/archive.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' }),
   ],
   providers: [],
   bootstrap: [AppComponent]

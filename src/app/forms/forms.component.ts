@@ -13,7 +13,8 @@ export class FormsComponent implements OnInit {
 
   notes: ICard = {
     content: '',
-    id: 0
+    id: 0,
+    isArchive: false
   }
   newForm : FormGroup;
 
@@ -47,7 +48,8 @@ export class FormsComponent implements OnInit {
   clearNote(){
     this.notes = {
       content: '',
-      id: 0
+      id: 0,
+      isArchive: false
     }
   }
 
