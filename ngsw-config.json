@@ -1,4 +1,9 @@
 {
+  "external":{
+    "urls": [
+      {"url": "https://fonts.googleapis.com/icon?family=Material+Icons"}
+    ]
+  },
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "assetGroups": [
